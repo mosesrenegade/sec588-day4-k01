@@ -1,0 +1,20 @@
+language: node_js
+
+branches:
+  only:
+  - /.*/
+  
+services:
+  - docker
+
+install:
+  - echo "install nothing!" # put your normal pre-testing installs here
+
+script:
+  - echo "no tests!" # put your normal testing scripts here
+
+after_success:
+  - docker --version
+  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
+  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/class-ecr-helpfulapp .
+  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/class-ecr-helpfulapp
